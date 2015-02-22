@@ -14,6 +14,16 @@
 		6EA23DA31A4EBFBA00FF4FB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA23DA21A4EBFBA00FF4FB3 /* Images.xcassets */; };
 		6EA23DA61A4EBFBA00FF4FB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA23DA41A4EBFBA00FF4FB3 /* LaunchScreen.xib */; };
 		6EA23DB21A4EBFBA00FF4FB3 /* VisitTheWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DB11A4EBFBA00FF4FB3 /* VisitTheWorldTests.m */; };
+		6EA23DBC1A4EBFEC00FF4FB3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA23DBB1A4EBFEC00FF4FB3 /* CoreMotion.framework */; };
+		6EA23DBE1A4EBFF200FF4FB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA23DBD1A4EBFF200FF4FB3 /* CoreLocation.framework */; };
+		6EA23DCB1A4EC0D500FF4FB3 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DC21A4EC0D500FF4FB3 /* FMDatabase.m */; };
+		6EA23DCC1A4EC0D500FF4FB3 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DC41A4EC0D500FF4FB3 /* FMDatabaseAdditions.m */; };
+		6EA23DCD1A4EC0D500FF4FB3 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DC61A4EC0D500FF4FB3 /* FMDatabasePool.m */; };
+		6EA23DCE1A4EC0D500FF4FB3 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DC81A4EC0D500FF4FB3 /* FMDatabaseQueue.m */; };
+		6EA23DCF1A4EC0D500FF4FB3 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DCA1A4EC0D500FF4FB3 /* FMResultSet.m */; };
+		6EA23DD31A4EC0E900FF4FB3 /* SqliteMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA23DD21A4EC0E900FF4FB3 /* SqliteMethod.m */; };
+		6EA23DD51A4EC11E00FF4FB3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA23DD41A4EC11E00FF4FB3 /* libsqlite3.0.dylib */; };
+		6EA23DD71A4EF58200FF4FB3 /* mainIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA23DD61A4EF58200FF4FB3 /* mainIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +50,22 @@
 		6EA23DAB1A4EBFBA00FF4FB3 /* VisitTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisitTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA23DB01A4EBFBA00FF4FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EA23DB11A4EBFBA00FF4FB3 /* VisitTheWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisitTheWorldTests.m; sourceTree = "<group>"; };
+		6EA23DBB1A4EBFEC00FF4FB3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6EA23DBD1A4EBFF200FF4FB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6EA23DC11A4EC0D500FF4FB3 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		6EA23DC21A4EC0D500FF4FB3 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		6EA23DC31A4EC0D500FF4FB3 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		6EA23DC41A4EC0D500FF4FB3 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		6EA23DC51A4EC0D500FF4FB3 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		6EA23DC61A4EC0D500FF4FB3 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		6EA23DC71A4EC0D500FF4FB3 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		6EA23DC81A4EC0D500FF4FB3 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		6EA23DC91A4EC0D500FF4FB3 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		6EA23DCA1A4EC0D500FF4FB3 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		6EA23DD11A4EC0E900FF4FB3 /* SqliteMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqliteMethod.h; sourceTree = "<group>"; };
+		6EA23DD21A4EC0E900FF4FB3 /* SqliteMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqliteMethod.m; sourceTree = "<group>"; };
+		6EA23DD41A4EC11E00FF4FB3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		6EA23DD61A4EF58200FF4FB3 /* mainIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainIcon.png; path = Resources/mainIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA23DD51A4EC11E00FF4FB3 /* libsqlite3.0.dylib in Frameworks */,
+				6EA23DBE1A4EBFF200FF4FB3 /* CoreLocation.framework in Frameworks */,
+				6EA23DBC1A4EBFEC00FF4FB3 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +92,9 @@
 		6EA23D891A4EBFB900FF4FB3 = {
 			isa = PBXGroup;
 			children = (
+				6EA23DD41A4EC11E00FF4FB3 /* libsqlite3.0.dylib */,
+				6EA23DBD1A4EBFF200FF4FB3 /* CoreLocation.framework */,
+				6EA23DBB1A4EBFEC00FF4FB3 /* CoreMotion.framework */,
 				6EA23D941A4EBFB900FF4FB3 /* VisitTheWorld */,
 				6EA23DAE1A4EBFBA00FF4FB3 /* VisitTheWorldTests */,
 				6EA23D931A4EBFB900FF4FB3 /* Products */,
@@ -81,6 +113,7 @@
 		6EA23D941A4EBFB900FF4FB3 /* VisitTheWorld */ = {
 			isa = PBXGroup;
 			children = (
+				6EA23DBF1A4EC0B500FF4FB3 /* Libs */,
 				6EA23D991A4EBFBA00FF4FB3 /* AppDelegate.h */,
 				6EA23D9A1A4EBFBA00FF4FB3 /* AppDelegate.m */,
 				6EA23D9C1A4EBFBA00FF4FB3 /* ViewController.h */,
@@ -96,6 +129,7 @@
 		6EA23D951A4EBFB900FF4FB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6EA23DD61A4EF58200FF4FB3 /* mainIcon.png */,
 				6EA23D961A4EBFB900FF4FB3 /* Info.plist */,
 				6EA23D971A4EBFB900FF4FB3 /* main.m */,
 			);
@@ -117,6 +151,41 @@
 				6EA23DB01A4EBFBA00FF4FB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EA23DBF1A4EC0B500FF4FB3 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				6EA23DD01A4EC0D800FF4FB3 /* SqliteMethod */,
+				6EA23DC01A4EC0C400FF4FB3 /* FMDB */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		6EA23DC01A4EC0C400FF4FB3 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				6EA23DC11A4EC0D500FF4FB3 /* FMDatabase.h */,
+				6EA23DC21A4EC0D500FF4FB3 /* FMDatabase.m */,
+				6EA23DC31A4EC0D500FF4FB3 /* FMDatabaseAdditions.h */,
+				6EA23DC41A4EC0D500FF4FB3 /* FMDatabaseAdditions.m */,
+				6EA23DC51A4EC0D500FF4FB3 /* FMDatabasePool.h */,
+				6EA23DC61A4EC0D500FF4FB3 /* FMDatabasePool.m */,
+				6EA23DC71A4EC0D500FF4FB3 /* FMDatabaseQueue.h */,
+				6EA23DC81A4EC0D500FF4FB3 /* FMDatabaseQueue.m */,
+				6EA23DC91A4EC0D500FF4FB3 /* FMResultSet.h */,
+				6EA23DCA1A4EC0D500FF4FB3 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		6EA23DD01A4EC0D800FF4FB3 /* SqliteMethod */ = {
+			isa = PBXGroup;
+			children = (
+				6EA23DD11A4EC0E900FF4FB3 /* SqliteMethod.h */,
+				6EA23DD21A4EC0E900FF4FB3 /* SqliteMethod.m */,
+			);
+			path = SqliteMethod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +237,11 @@
 				TargetAttributes = {
 					6EA23D911A4EBFB900FF4FB3 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6EA23DAA1A4EBFBA00FF4FB3 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -200,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA23DA11A4EBFBA00FF4FB3 /* Main.storyboard in Resources */,
+				6EA23DD71A4EF58200FF4FB3 /* mainIcon.png in Resources */,
 				6EA23DA61A4EBFBA00FF4FB3 /* LaunchScreen.xib in Resources */,
 				6EA23DA31A4EBFBA00FF4FB3 /* Images.xcassets in Resources */,
 			);
@@ -220,8 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA23D9E1A4EBFBA00FF4FB3 /* ViewController.m in Sources */,
+				6EA23DD31A4EC0E900FF4FB3 /* SqliteMethod.m in Sources */,
+				6EA23DCD1A4EC0D500FF4FB3 /* FMDatabasePool.m in Sources */,
 				6EA23D9B1A4EBFBA00FF4FB3 /* AppDelegate.m in Sources */,
+				6EA23DCE1A4EC0D500FF4FB3 /* FMDatabaseQueue.m in Sources */,
 				6EA23D981A4EBFB900FF4FB3 /* main.m in Sources */,
+				6EA23DCB1A4EC0D500FF4FB3 /* FMDatabase.m in Sources */,
+				6EA23DCF1A4EC0D500FF4FB3 /* FMResultSet.m in Sources */,
+				6EA23DCC1A4EC0D500FF4FB3 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +424,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VisitTheWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +436,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VisitTheWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
