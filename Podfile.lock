@@ -1,0 +1,10 @@
+PODS:
+  - LFHeatMap (1.0.1)
+
+DEPENDENCIES:
+  - LFHeatMap
+
+SPEC CHECKSUMS:
+  LFHeatMap: c47847fffe60ad7bdd34b177372205fbef7f0f39
+
+COCOAPODS: 0.34.1
