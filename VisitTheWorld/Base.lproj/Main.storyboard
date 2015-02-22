@@ -83,10 +83,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Report View Controller-->
         <scene sceneID="J0p-Yu-C8H">
             <objects>
-                <viewController id="N6Z-ZD-ZFv" sceneMemberID="viewController">
+                <viewController id="N6Z-ZD-ZFv" customClass="ReportViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fxt-Bb-E3z"/>
                         <viewControllerLayoutGuide type="bottom" id="PbW-lt-m5c"/>
@@ -107,17 +107,30 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qyP-sf-KuR">
+                                <rect key="frame" x="14" y="550" width="572" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="N6Z-ZD-ZFv" eventType="valueChanged" id="PUo-lJ-74A"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ttI-tp-JlO" firstAttribute="top" secondItem="fxt-Bb-E3z" secondAttribute="bottom" id="349-8J-NJA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dse-pY-Aqh" secondAttribute="trailing" constant="-16" id="DxJ-L0-qTl"/>
+                            <constraint firstItem="PbW-lt-m5c" firstAttribute="top" secondItem="qyP-sf-KuR" secondAttribute="bottom" constant="20" id="F7n-oF-pym"/>
+                            <constraint firstItem="qyP-sf-KuR" firstAttribute="trailing" secondItem="0kD-tx-kSt" secondAttribute="trailingMargin" id="SgO-ol-DFR"/>
                             <constraint firstItem="dse-pY-Aqh" firstAttribute="leading" secondItem="0kD-tx-kSt" secondAttribute="leadingMargin" constant="-16" id="dyf-KT-a4D"/>
                             <constraint firstItem="ttI-tp-JlO" firstAttribute="leading" secondItem="0kD-tx-kSt" secondAttribute="leadingMargin" id="iVG-gf-2p5"/>
                             <constraint firstItem="dse-pY-Aqh" firstAttribute="top" secondItem="0kD-tx-kSt" secondAttribute="topMargin" id="lkr-W9-0Dj"/>
+                            <constraint firstItem="qyP-sf-KuR" firstAttribute="leading" secondItem="0kD-tx-kSt" secondAttribute="leadingMargin" id="pfV-iZ-xlc"/>
                             <constraint firstItem="PbW-lt-m5c" firstAttribute="top" secondItem="dse-pY-Aqh" secondAttribute="bottom" id="zTP-XZ-X4W"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="dse-pY-Aqh" id="Ulj-2D-5gD"/>
+                        <outlet property="slider" destination="qyP-sf-KuR" id="rf3-yz-l3p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZD-qU-nfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
