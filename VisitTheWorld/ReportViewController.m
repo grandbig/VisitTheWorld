@@ -23,7 +23,7 @@ static NSString *motionTable = @"motion";
 /// Sliderオブジェクト
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 /// 位置情報格納オブジェクト
-@property (strong, nonatomic) NSArray *locations;
+@property (strong, nonatomic) NSArray *locations, *weights;
 /// UIImageViewオブジェクト
 @property (strong, nonatomic) UIImageView *imageView;
 
@@ -37,6 +37,12 @@ static NSString *motionTable = @"motion";
     
     // 端末のplaceテーブルから情報を取得
     self.locations = [self selectPlaceData];
+    NSInteger cnt = [self.locations count];
+    self.weights = [self createWeightData:cnt];
+    
+    MKCoordinateSpan span = MKCoordinateSpanMake(10.0, 13.0);
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(35.662795405456, 139.7613909697);
+    self.mapView.region = MKCoordinateRegionMake(center, span);
     
     // MapにUIImageViewを追加
     self.imageView = [[UIImageView alloc] initWithFrame:self.mapView.frame];
@@ -45,6 +51,11 @@ static NSString *motionTable = @"motion";
     
     // ヒートマップの初期化
     [self sliderChanged:self.slider];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.mapView.showsUserLocation = YES;
+    //[self.mapView setUserTrackingMode:MKUserTrackingModeFollow];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +88,18 @@ static NSString *motionTable = @"motion";
     return array;
 }
 
+- (NSArray *)createWeightData:(NSInteger)cnt
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    for(NSInteger i=0; i < cnt; i++) {
+        NSNumber *magnitude = [[NSNumber alloc] initWithInteger:10];
+        [array addObject:magnitude];
+    }
+    
+    return array;
+}
+
 /**
  UISliderの値を変更した場合に呼び出される処理
  @param slider UISliderオブジェクト
@@ -86,7 +109,7 @@ static NSString *motionTable = @"motion";
     // Sliderのvalue
     float boost = slider.value;
     // ヒートマップ画像の設定
-    UIImage *heatmap = [LFHeatMap heatMapForMapView:self.mapView boost:boost locations:self.locations weights:nil];
+    UIImage *heatmap = [LFHeatMap heatMapForMapView:self.mapView boost:boost locations:self.locations weights:self.weights];
     // ヒートマップ画像をUIImageViewに格納
     self.imageView.image = heatmap;
 }
