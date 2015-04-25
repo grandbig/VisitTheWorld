@@ -21,6 +21,9 @@ static NSString *motionTable = @"motion";
 @property (strong, nonatomic) CLLocationManager *lm;
 @property (strong, nonatomic) CMPedometer *pmp;
 @property (strong, nonatomic) UIAlertView *alert;
+@property (assign, nonatomic) BOOL measureFlag;
+@property (weak, nonatomic) IBOutlet UIButton *measureBtn;
+@property (weak, nonatomic) IBOutlet UILabel *stepLabel;
 
 @end
 
@@ -41,6 +44,9 @@ static NSString *motionTable = @"motion";
     [self createTable:motionTable];
     
     self.alert.delegate = self;
+    
+    // 計測フラグの初期設定
+    self.measureFlag = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,44 +95,6 @@ static NSString *motionTable = @"motion";
     // ローカルプッシュ
     NSString *message = [[NSString alloc] initWithFormat:@"lat: %f, lng: %f, hacc: %f, 到着日時: %@, 出発日時: %@", lat, lng, hacc, arrivalDateString, departureDateString];
     [self sendLocalNotificationForMessage:message soundFlag:NO];
-}
-
-#pragma mark - UIAlertViewDelegate
-// アラートのボタンを選択したときの挙動
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch(buttonIndex) {
-        case 0:
-        {
-            NSLog(@"1つ目のボタンを選択しました。");
-            if(alertView.tag == 1) {
-                NSLog(@"キャンセルボタンをタップ");
-            } else if(alertView.tag == 2) {
-                NSLog(@"キャンセルボタンをタップ");
-            }
-            break;
-        }
-        case 1:
-        {
-            NSLog(@"2つ目のボタンを選択しました。");
-            if(alertView.tag == 1) {
-                NSLog(@"OKボタンをタップ");
-                // モーション計測の可否を確認
-                BOOL check = [self confirmCMPedometer];
-                if(check) {
-                    // モーション計測の開始
-                    [self startPedometer];
-                }
-            } else if(alertView.tag == 2) {
-                NSLog(@"OKボタンをタップ");
-                // モーション計測の停止
-                [self stopPedometer];
-            }
-            break;
-        }
-        default:
-            break;
-    }
 }
 
 #pragma mark - private method
@@ -254,6 +222,7 @@ static NSString *motionTable = @"motion";
                                         // step数の取得
                                         NSNumber *step = pedometerData.numberOfSteps;
                                         NSInteger stepInt = [step integerValue];
+                                        self.stepLabel.text = [[NSString alloc] initWithFormat:@"%ld", (long)stepInt];
                                         
                                         // 距離
                                         NSNumber *distance = pedometerData.distance;
@@ -299,34 +268,78 @@ static NSString *motionTable = @"motion";
  */
 - (IBAction)actionStartBtn:(id)sender {
     
-    self.alert = [[UIAlertView alloc] initWithTitle:@"確認"
-                                            message:@"歩行の計測を開始しますか？"
-                                           delegate:self
-                                  cancelButtonTitle:@"キャンセル"
-                                  otherButtonTitles:@"OK", nil];
-    
-    // タグの付与
-    self.alert.tag = 1;
-    
-    // アラートの表示
-    [self.alert show];
+    if(self.measureFlag) {
+        // 計測中の場合
+        self.alert = [[UIAlertView alloc] initWithTitle:@"確認"
+                                                message:@"歩行の計測を停止しますか？"
+                                               delegate:self
+                                      cancelButtonTitle:@"キャンセル"
+                                      otherButtonTitles:@"OK", nil];
+        // タグの付与
+        self.alert.tag = 2;
+        // アラートの表示
+        [self.alert show];
+    } else {
+        // 計測していない場合
+        self.alert = [[UIAlertView alloc] initWithTitle:@"確認"
+                                                message:@"歩行の計測を開始しますか？"
+                                               delegate:self
+                                      cancelButtonTitle:@"キャンセル"
+                                      otherButtonTitles:@"OK", nil];
+        
+        // タグの付与
+        self.alert.tag = 1;
+        // アラートの表示
+        [self.alert show];
+    }
 }
 
-/**
- STOPボタンをタップした時の処理
- */
-- (IBAction)actionClearBtn:(id)sender {
-    
-    self.alert = [[UIAlertView alloc] initWithTitle:@"確認"
-                                            message:@"歩行の計測を停止しますか？"
-                                           delegate:self
-                                  cancelButtonTitle:@"キャンセル"
-                                  otherButtonTitles:@"OK", nil];
-    
-    // タグの付与
-    self.alert.tag = 2;
-    
-    // アラートの表示
-    [self.alert show];
+#pragma mark - UIAlertViewDelegate
+// アラートのボタンを選択したときの挙動
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex) {
+        case 0:
+        {
+            NSLog(@"1つ目のボタンを選択しました。");
+            if(alertView.tag == 1) {
+                NSLog(@"キャンセルボタンをタップ");
+            } else if(alertView.tag == 2) {
+                NSLog(@"キャンセルボタンをタップ");
+            }
+            break;
+        }
+        case 1:
+        {
+            NSLog(@"2つ目のボタンを選択しました。");
+            if(alertView.tag == 1) {
+                NSLog(@"OKボタンをタップ");
+                // モーション計測の可否を確認
+                BOOL check = [self confirmCMPedometer];
+                if(check) {
+                    // モーション計測の開始
+                    [self startPedometer];
+                }
+                // ボタン画像の変更
+                UIImage *img = [UIImage imageNamed:@"stop.png"];
+                [self.measureBtn setBackgroundImage:img forState:UIControlStateNormal];
+                self.measureFlag = YES;
+            } else if(alertView.tag == 2) {
+                NSLog(@"OKボタンをタップ");
+                // モーション計測の停止
+                [self stopPedometer];
+                // ボタン画像の変更
+                UIImage *img = [UIImage imageNamed:@"start.png"];
+                [self.measureBtn setBackgroundImage:img forState:UIControlStateNormal];
+                self.measureFlag = NO;
+                // ラベルの変更
+                self.stepLabel.text = @"Let's Walking";
+            }
+            break;
+        }
+        default:
+            break;
+    }
 }
+
 @end
